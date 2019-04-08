@@ -40,7 +40,8 @@ export default {
 
     },
     reset(){
-
+      this.texte = "";
+      this.motif = "";
     }
   },
 }
