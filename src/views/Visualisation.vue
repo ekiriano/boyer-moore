@@ -1,18 +1,47 @@
 <template>
   <div class="visualisation">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+      <label> Motif :
+      <input type="text" placeholder="Motif" v-model="motif"></label>
+      <label> Texte :
+        <input type="text" placeholder="Texte" v-model="texte" ></label>
+    </div>
+    <div>
+      <button class="btn btn-primary mr-1" @click="visualize">Visualisation Complete <i class="fas fa-play"></i></button>
+      <button class="btn btn-success mr-1" @click="nextStep">Etape Par Etape <i class="fas fa-forward"></i></button>
+      <button class="btn btn-danger mr-1" @click="reset">Reset <i class="fas fa-undo"></i></button>
+    </div>
+    <h1>{{this.texte}}</h1>
   </div>
+
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
-  }
+  },
+  data() {
+    return{
+      motif : "",
+      texte : ""
+    }
+  },
+  methods : {
+    pretraite(texte){
+
+    },
+    visualize(){
+
+    },
+    nextStep(){
+
+    },
+    reset(){
+
+    }
+  },
 }
 </script>
