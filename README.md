@@ -1,29 +1,24 @@
-# boyer-moore
+# Boyer Moore Algorithm viusalisation
+This project is Single Page Application of an interactive visualisation of the Boyer Moore Algorithm made with Vue.js
 
-## Project setup
-```
-npm install
-```
+## Getting Started
 
-### Compiles and hot-reloads for development
 ```
+git clone https://github.com/ekiriano/boyer-moore.git
+npm i 
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Versioning
 
-### Run your tests
-```
-npm run test
-```
+version 1.0.0
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Authors
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* **Amine Soufyani** - *Initial work* - [ekiriano](https://github.com/ekiriano)
+* **Anthony Morel** - *Initial work* - [AnthonyFromEarth](https://github.com/AnthonyFromEarth)
+* **Jean-Baptiste Calendini** - *Initial work* - [JBCale](https://github.com/JBCale)
+
+
+
+
