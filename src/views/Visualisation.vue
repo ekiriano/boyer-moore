@@ -57,6 +57,13 @@ export default {
       this.borderTab = [];
       this.tab = [];
     },
+    halfReset() {
+      this.index = -1;
+      this.localTab = [];
+      this.shiftTab = [];
+      this.borderTab = [];
+      this.tab = [];
+    },
 
     matchCompletSuffixe() {
       var n = this.motif.length;
@@ -115,9 +122,14 @@ export default {
     },
     main() {
       this.rechercheMotif();
-      for (var i = 0; i <= this.index; i++) {
-        console.log("Motif trouvé a la position " + this.localTab[i]);
+      if (this.index === -1) {
+        console.log("Motif non trouvé");
+      } else {
+        for (var i = 0; i <= this.index; i++) {
+          console.log("Motif trouvé a la position " + this.localTab[i]);
+        }
       }
+      this.halfReset();
     }
   }
 };
