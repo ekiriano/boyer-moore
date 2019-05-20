@@ -65,11 +65,7 @@ export default {
     reset() {
       this.texte = "";
       this.motif = "";
-      this.index = -1;
-      this.localTab = [];
-      this.shiftTab = [];
-      this.borderTab = [];
-      this.tab = [];
+
       this.steps_index = 0;
       this.steps = [];
       this.printtxt = "";
@@ -87,94 +83,6 @@ export default {
       this.shiftTab = [];
       this.borderTab = [];
       this.tab = [];
-    },
-
-    matchCompletSuffixe() {
-      var n = this.motif.length;
-      var i = n;
-      var j = n + 1;
-      this.borderTab[i] = j;
-      while (i > 0) {
-        while (j <= n && this.motif[i - 1] !== this.motif[j - 1]) {
-          if (this.shiftTab[j] === 0) this.shiftTab[j] = j - i;
-          j = this.borderTab[j];
-        }
-        i--;
-        j--;
-        this.borderTab[i] = j;
-      }
-    },
-
-    matchSuffixePartiel() {
-      var n = this.motif.length;
-      var j;
-      j = this.borderTab[0];
-      for (var i = 0; i < n; i++) {
-        if (this.shiftTab[i] === 0) {
-          this.shiftTab[i] = j;
-        }
-        if (i === j) {
-          j = this.borderTab[j];
-        }
-      }
-    },
-
-    rechercheMotif() {
-      var l_motif = this.motif.length;
-      var l_texte = this.texte.length;
-      this.borderTab[l_motif + 1];
-      this.shiftTab[l_motif + 1];
-
-      for (var i = 0; i <= l_motif; i++) {
-        this.shiftTab[i] = 0;
-      }
-
-      this.matchCompletSuffixe();
-      this.matchSuffixePartiel();
-
-      /*
-      console.log("-----------SHIFT :" + shift+"-------------");
-      console.log("BORDER TABLE : ");
-      console.log(this.borderTab.slice(0));
-      console.log("SHIFT TABLE : ");
-      console.log(this.shiftTab.slice(0));
-      */
-
-      var shift = 0;
-
-      while (shift <= l_texte - l_motif) {
-        var j = l_motif - 1;
-        while (j >= 0 && this.motif[j] === this.texte[shift + j]) {
-          j--;
-        }
-
-        console.log(
-          "J arrivé de " + (l_motif - 1) + " à " + j + " -- SHIFT : " + shift
-        );
-        this.steps[this.steps_index++] = [j, shift];
-
-        if (j < 0) {
-          this.index++;
-          this.localTab[this.index] = shift;
-          shift += this.shiftTab[0];
-        } else {
-          shift += this.shiftTab[j + 1];
-        }
-      }
-    },
-
-    main() {
-      this.rechercheMotif();
-      if (this.index === -1) {
-        console.log("Motif non trouvé");
-      } else {
-        for (var i = 0; i <= this.index; i++) {
-          console.log("Motif trouvé a la position " + this.localTab[i]);
-        }
-      }
-
-      console.log(this.steps);
-      //this.halfReset();
     },
 
     visuNextStep() {
